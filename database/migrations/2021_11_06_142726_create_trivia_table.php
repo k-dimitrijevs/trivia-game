@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuizTable extends Migration
+class CreateTriviaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateQuizTable extends Migration
      */
     public function up()
     {
-        Schema::create('quiz', function (Blueprint $table) {
+        Schema::create('trivia', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->string('question')->nullable();
-            $table->integer('answer')->nullable();
-            $table->integer('correct_answers_count')->default(0);
+            $table->string('question')->nullable()->default(null);
+            $table->bigInteger('answer')->nullable()->default(null);
+            $table->bigInteger('correct_answer')->nullable()->default(null);
         });
     }
 

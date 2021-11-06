@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TriviaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('trivia', TriviaController::class)->middleware(['auth']);
+
+Route::post('trivia/check', [TriviaController::class, 'check']);
 
 require __DIR__.'/auth.php';
