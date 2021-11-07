@@ -1,11 +1,5 @@
 # Trivia game
 
-### Table of contents
-
-- [Trivia game](#trivia-game)
-- [Game mechanics](#game-mechanics)
-- [To run this project](####to-run-this-project)
-
 #### Game mechanics:
 
 - User can login/register
