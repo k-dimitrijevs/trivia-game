@@ -15,11 +15,26 @@
 
                 <form method="post" action="/trivia/check">
                     @csrf
-                    <p>Select Answer:</p>
-                    @foreach($answers as $answer)
-                        <input type="radio" id="radio" value="{{ $answer }}" name="answer">{{ $answer }}
-                    @endforeach
-                    <button type="submit">Submit</button>
+                    <div class="p-6 bg-white">
+                        <p>Select Answer:</p>
+                        @foreach($answers as $answer)
+                            <div class="p-1">
+                                <input type="radio" id="radio" value="{{ $answer }}" name="answer">{{ $answer }}
+                            </div>
+                        @endforeach
+
+                        @error('answer')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
+
+                        <div class="buttons flex mt-5">
+                            <button>
+                                <div class="btn border border-indigo-500 p-1 px-4 font-semibold rounded cursor-pointer text-white bg-blue-500">
+                                    Submit
+                                </div>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

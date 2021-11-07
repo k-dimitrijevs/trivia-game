@@ -12,12 +12,15 @@
                     Trivia Game
 
                     <div class="buttons flex">
-                        <div class="btn p-2 mt-1 px-4 rounded font-semibold cursor-pointer text-gray-200 bg-yellow-500">
-                            <form method="post" action="{{ route('trivia.store') }}">
-                                @csrf
-                                <button type="submit">Start Game</button>
-                            </form>
-                        </div>
+                        <form method="post" action="{{ route('trivia.store') }}">
+                            @csrf
+                            <button type="submit">
+                                <div class="btn p-2 mt-1 px-4 rounded font-semibold cursor-pointer text-gray-200 bg-yellow-500">
+                                    Start Game
+                                </div>
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>
