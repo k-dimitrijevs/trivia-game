@@ -11,7 +11,7 @@
 #### To run this project:
 
 - Clone repository
-- Create database table and add that to `.env` (rename `.env.example`)
+- Create database and add that to `.env` (rename `.env.example`)
 - Open terminal and go to project location
 - Run `composer install`
 - You need to migrate database with `php artisan migrate`
