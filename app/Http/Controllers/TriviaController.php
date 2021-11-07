@@ -17,7 +17,7 @@ class TriviaController extends Controller
             ->orderBy('answer', 'ASC')
             ->orderBy('id', 'ASC')
             ->first();
-        $answers = [$trivia->correct_answer, rand(1, 100), rand(1, 100)];
+        $answers = [$trivia->correct_answer, rand(1, 250), rand(1, 250)];
         shuffle($answers);
 
         return view('trivia.index', ['trivia' => $trivia, 'answers' => $answers]);
@@ -29,13 +29,16 @@ class TriviaController extends Controller
 
         for ($i = 0; $i < 20; $i++)
         {
-            $num = rand(1, 100);
+            $num = rand(1, 250);
+            // using $num, because min, max didn't work. Using random sometimes generated too big numbers.
             $triviaData = Http::get("http://numbersapi.com/$num?json");
 
             $question = $triviaData->json(['text']);
             $correct_answer = $triviaData->json(['number']);
 
-            $question = str_replace($correct_answer,"What ", $question);
+            $question = str_replace($correct_answer,"What", $question);
+
+            if (Trivia::where('question', '=', $question)->count() > 0) continue;
 
             $trivia = (new Trivia([
                 'question' => $question,
